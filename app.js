@@ -1,4 +1,5 @@
-import validAnagram from "./anagram.js";
+// import validAnagram from "./anagram.js";
+import countUniqueValues from "./multiplePointers.js";
 // console.log("hello");
 // console.log("hello");
 
@@ -57,8 +58,65 @@ import validAnagram from "./anagram.js";
 // ==============================================================================
 
 // validAnagram("zza", "azz");
-console.log(validAnagram("zza", "azz"));
-console.log(validAnagram("awesome", "awesosm"));
-console.log(validAnagram("a", "azz"));
 // console.log(validAnagram("zza", "azz"));
-// console.log(validAnagram("zza", "azz"));
+// console.log(validAnagram("awesome", "awesosm"));
+// console.log(validAnagram("a", "azz"));
+
+// ==============================================================================
+
+// function sumZero(arr) {
+//   for (let i in arr) {
+//     for (let j in arr) {
+//       if (arr[i] + arr[j] === 0 && arr[i] !== arr[j]) {
+//         return [arr[i], arr[j]];
+//       }
+//     }
+//   }
+// }
+
+// function sumZero2(arr) {
+//   let pointer1 = 0;
+//   let pointer2 = arr.length - 1;
+//   for (let num of arr) {
+//     if (pointer1 === pointer2) return;
+//     if (arr[pointer1] + arr[pointer2] > 0) {
+//       pointer2--;
+//     }
+//     if (arr[pointer1] + arr[pointer2] < 0) {
+//       pointer1++;
+//     }
+//     if (arr[pointer1] + arr[pointer2] === 0) {
+//       return [arr[pointer1], arr[pointer2]];
+//     }
+//   }
+// }
+
+// function sumZero2(arr) {
+//   let left = 0;
+//   let right = arr.length - 1;
+//   while (left < right) {
+//     let sum = arr[left] + arr[right];
+//     if (sum === 0) {
+//       console.log([arr[left], arr[right]]);
+//       return;
+//     } else if (sum > 0) {
+//       right--;
+//     } else {
+//       left++;
+//     }
+//   }
+// }
+
+// console.log(sumZero2([4, 2, 0, -3, 1, 3]));
+// let arr1 = [-5, -4, -3, 2, 0, 1, 3, 4];
+// sumZero2(arr1);
+
+// const arr = [1, 5, -3, -9, 2, -5];
+// const arr = [1, 5, 3, 9, 2, 5];
+// const arr = ["b", "t", "s", "c"];
+// const x = arr.sort();
+// console.log(x);
+
+// const arr = [1, 1, 1, 1, 2, 2, 2, 6, 6, 6, 6, 6, 6, 6, 8, 8, 8, 10, 10, 10];
+const arr = [];
+countUniqueValues(arr);
