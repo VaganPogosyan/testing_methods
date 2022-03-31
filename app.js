@@ -1,3 +1,4 @@
+import validAnagram from "./anagram.js";
 // console.log("hello");
 // console.log("hello");
 
@@ -38,17 +39,26 @@
 
 // ==========================
 
-function same(arr1, arr2) {
-  for (let el1 of arr1) {
-    for (let el2 of arr2) {
-      if (el2 === el1 ** 2) {
-        console.log(`${el1} = ${el2}`);
-      }
-    }
-  }
-}
+// function same(arr1, arr2) {
+//   for (let el1 of arr1) {
+//     for (let el2 of arr2) {
+//       if (el2 === el1 ** 2) {
+//         console.log(`${el1} = ${el2}`);
+//       }
+//     }
+//   }
+// }
 
-const arr1 = [1, 2, 3];
-const arr2 = [4, 9, 1];
+// const arr1 = [1, 2, 3];
+// const arr2 = [4, 9, 1];
 
-same(arr1, arr2);
+// same(arr1, arr2);
+
+// ==============================================================================
+
+// validAnagram("zza", "azz");
+console.log(validAnagram("zza", "azz"));
+console.log(validAnagram("awesome", "awesosm"));
+console.log(validAnagram("a", "azz"));
+// console.log(validAnagram("zza", "azz"));
+// console.log(validAnagram("zza", "azz"));
