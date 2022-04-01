@@ -1,5 +1,12 @@
 // import validAnagram from "./anagram.js";
 import countUniqueValues from "./multiplePointers.js";
+import sameFrequency from "./codingChallenge3.js";
+import areThereDuplicates from "./codingChallenge4.js";
+import averagePair from "./CodingChallenge5.js";
+import isSubsequent from "./CodingChallenge6.js";
+import maxSubArray from "./CodingChallenge7.js";
+import minSubArrayLen from "./CodingChallenge8.js";
+import findLongestSubstring from "./CodingChallenge9.js";
 // console.log("hello");
 // console.log("hello");
 
@@ -118,5 +125,30 @@ import countUniqueValues from "./multiplePointers.js";
 // console.log(x);
 
 // const arr = [1, 1, 1, 1, 2, 2, 2, 6, 6, 6, 6, 6, 6, 6, 8, 8, 8, 10, 10, 10];
-const arr = [];
-countUniqueValues(arr);
+// const arr = [];
+// countUniqueValues(arr);
+
+// ==============================================================================
+//
+// Coding challenge 3
+// sameFrequency(182965, 281569);
+
+// Coding challenge 4
+// console.log(areThereDuplicates(8, 6, 3, 4, 5, 4));
+// areThereDuplicates(8, 6, 3, 4, 5, 3, 3, 8);
+
+// Coding challenge 5
+// averagePair([1, 2, 3, 4, 5], 3.5);
+
+// Coding challenge 6
+// isSubsequent("abcdefgh", "abc");
+// console.log(isSubsequent("abdc", "abfffdghghc"));
+
+// Coding challenge 7
+// maxSubArray([100, 200, 300, 400], 2);
+// console.log(maxSubArray([100, 200, 300, 400], 2));
+
+// Coding challenge 8
+// minSubArrayLen([2, 3, 1, 2, 4, 3], 7);
+
+// Coding challenge 9
