@@ -1,9 +1,4 @@
 function minSubArrayLen(nums, sum) {
-  // keep adding every next number to the first until it's equal or greater than num
-  // count how many elements were added together and store that number
-  // move the window to the right
-  // if sum of the new subarray is greater than previous subtract the first element in it
-  // get the smallest number of elements
   let total = 0;
   let start = 0;
   let end = 0;

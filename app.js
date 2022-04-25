@@ -7,6 +7,7 @@ import isSubsequent from "./CodingChallenge6.js";
 import maxSubArray from "./CodingChallenge7.js";
 import minSubArrayLen from "./CodingChallenge8.js";
 import findLongestSubstring from "./CodingChallenge9.js";
+import { collectOdds, factorial, Recursion } from "./Recursion.js";
 // console.log("hello");
 // console.log("hello");
 
@@ -152,3 +153,48 @@ import findLongestSubstring from "./CodingChallenge9.js";
 // minSubArrayLen([2, 3, 1, 2, 4, 3], 7);
 
 // Coding challenge 9
+// console.log(findLongestSubstring("bbbbcfhcgjbb"));
+
+// ==============================================================================
+// ==============================================================================
+// ==============================================================================
+
+// Recursion
+// Recursion();
+// console.log(factorial(4));
+
+// const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// console.log(collectOdds(arr1));
+// console.log(Math.pow(4, 3));
+
+// function xx(arr, val) {
+//   for (let i in arr) {
+//     if (arr[i] === val) return i;
+//   }
+//   return -1;
+// }
+
+// console.log(xx(arr1, 43));
+
+// Reduce Method
+// const items = [
+//   { name: "Book", price: 20 },
+//   { name: "Chicken", price: 30 },
+//   { name: "Monitor", price: 40 },
+//   { name: "Paper", price: 40 },
+//   { name: "Pen", price: 40 },
+// ];
+
+// // const totalPrice = items.reduce((total, item) => {
+// //   return total + item.price;
+// // }, 0);
+// // console.log(totalPrice);
+
+// const groupedItems = items.reduce((groupedItems, item) => {
+//   const price = item.price;
+//   if (!groupedItems[price]) groupedItems[price] = [];
+//   groupedItems[price].push(item);
+//   return groupedItems;
+// }, {});
+
+// console.log(groupedItems);
