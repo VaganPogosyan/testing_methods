@@ -198,3 +198,193 @@ import { collectOdds, factorial, Recursion } from "./Recursion.js";
 // }, {});
 
 // console.log(groupedItems);
+
+// ==============================================================================
+// ============================== BINARY SEARCH =================================
+// ==============================================================================
+// BINARY SEARCH ONLY WORKS ON SORTED ARRAYS
+
+// Pseudo code
+// This function accepts a sorted array and a value
+// Create a left pointer at the start of the array,
+//  and a right pointer at the and of the array
+// While the left pointer comes before the right pointer:
+// - create a pointer in the middle
+// - if you find the value you want return the index
+// - if the value is to small, move the left pointer up
+// - if the value is too large move the right pointer down
+// - if you never find the value return -1
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 14, 15, 16, 17, 18, 19, 20];
+
+// function binarySearch(arr, num) {
+//   let lp = 0;
+//   let rp = arr.length - 1;
+//   let mid = Math.ceil(rp / 2);
+// //   while (lp < rp) {
+//     if (arr.length === 0) return;
+//     if (num === arr[mid]) {
+//       return arr[mid];
+//     }
+//     if (num < arr[mid]) {
+//       rp = mid;
+//       mid = Math.ceil(rp / 2);
+//       return;
+//     }
+//     if (num > arr[mid]) {
+//       lp = mid;
+//       mid = Math.ceil(rp / 2);
+//     }
+//     return -1;
+//   }
+// }
+
+// function binarySearch(arr, elem) {
+//   let start = 0;
+//   let end = arr.length - 1;
+//   let middle = Math.floor((start + end) / 2);
+//   while (arr[middle] !== elem && start <= end) {
+//     if (elem < arr[middle]) {
+//       end = middle - 1;
+//     } else {
+//       start = middle + 1;
+//     }
+//     middle = Math.floor((start + end) / 2);
+//   }
+//   if (arr[middle] === elem) {
+//     return middle;
+//   }
+//   return -1;
+// }
+
+// // Cleaned up version
+// function binarySearch(arr, elem) {
+//   let start = 0;
+//   let end = arr.length - 1;
+//   let middle = Math.floor((start + end) / 2);
+//   while (arr[middle] !== elem && start <= end) {
+//     if (elem < arr[middle]) end = middle - 1;
+//     else start = middle + 1;
+//     middle = Math.floor((start + end) / 2);
+//   }
+//   return arr[middle] === elem ? middle : -1;
+// }
+
+// console.log(binarySearch(arr, 435));
+
+// ========= NAIVE STRING SEARCH ===========================
+
+// let str = "harold said haha in hamburg";
+
+// function naiveSearch(long, short) {
+//   let count = 0;
+//   for (let i = 0; i < long.length; i++) {
+//     for (let j = 0; j < short.length; j++) {
+//       if (short[j] !== long[i + j]) {
+//         break;
+//       }
+//       if (j === short.length - 1) {
+//         count++;
+//       }
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(naiveSearch("lorie loled", "lo"));
+
+// ==============================================================================
+// ==============================================================================
+// ============================== SORTING =======================================
+// ==============================================================================
+// ==============================================================================
+
+// javascript .sort() method:
+// const arr = [9, 3, 14, 5, 15, 16, 2, 17, 18, 3, 19, 20];
+
+// function compare(a, b) {
+//   return a - b;
+// }
+
+// const arr2 = ["simple", "buyme", "go", "america", "vedronagolove"];
+
+// arr.sort(compare);
+// arr2.sort((a, b) => {
+//   return a.length - b.length;
+// });
+
+// ==============================================================================
+// ============================== BUBBLE SORT ===================================
+// ==============================================================================
+// the largest value bubbles to the top
+
+// const arr = [1, 2, 4, 5, 6, 3, 9, 7, 11];
+
+// swapping using temp value
+// let temp = arr[0];
+// arr[0] = arr[1];
+// arr[1] = temp;
+
+// swapping using deconstruction
+// [arr[0], arr[1]] = [arr[1], arr[0]];
+
+// function bubbleSort(arr) {
+//   let noSwaps;
+//   // as i goes down j goes down too
+//   for (let i = arr.length; i > 0; i--) {
+//     for (let j = 0; j < i - 1; j--) {
+//       noSwaps = true;
+//       if (arr[j] > arr[j + 1]) {
+//         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+//         noSwaps = false;
+//       }
+//     }
+//     if (noSwaps) break;
+//   }
+
+//   console.log(arr);
+//   return arr;
+// }
+
+// bubbleSort(arr);
+
+// ==============================================================================
+// ============================== SELECTION SORT ================================
+// ==============================================================================
+//
+// - Store the first element as the smallest value you've seen so far
+// - Compare this item to the next item in the array until you find a smaller number
+// - If a smaller number is found, designate that smaller number to be the new "minimum"
+// and continue until the end of the array
+// - If the "minimum" is not the value(index)you initialy began with, swap the two values
+// - Repeat this with the next element until the array is sorted
+
+// function selectionSort(arr) {
+//   for (let i = 0; i < arr.lenegth; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       let min = arr[j];
+//       if (arr[j + 1] < arr[j]) {
+//         min = arr[i];
+//       }
+//       if (min !== arr[i]) {
+//           [arr[i], arr[min]] = [arr[min], arr[i]];
+//       }
+//     }
+//   }
+// }
+
+const arr = [8, 3, 6, 1, 3, 9, 11];
+
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let lowest = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[lowest]) {
+        lowest = j;
+      }
+    }
+  }
+  return arr;
+}
+
+selectionSort(arr);
