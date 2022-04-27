@@ -359,32 +359,55 @@ import { collectOdds, factorial, Recursion } from "./Recursion.js";
 // - If the "minimum" is not the value(index)you initialy began with, swap the two values
 // - Repeat this with the next element until the array is sorted
 
+// const arr = [8, 3, 6, 1, 3, 9, 11];
+
 // function selectionSort(arr) {
-//   for (let i = 0; i < arr.lenegth; i++) {
-//     for (let j = 0; j < arr.length; j++) {
-//       let min = arr[j];
-//       if (arr[j + 1] < arr[j]) {
-//         min = arr[i];
-//       }
-//       if (min !== arr[i]) {
-//           [arr[i], arr[min]] = [arr[min], arr[i]];
+//   for (let i = 0; i < arr.length; i++) {
+//     let lowest = i;
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[j] < arr[lowest]) {
+//         lowest = j;
 //       }
 //     }
+//     // swap
+//     if (arr[lowest] !== arr[i]) {
+//       // ES6:
+//       [arr[i], arr[lowest]] = [arr[lowest], arr[i]];
+
+//       // ES5:
+//       // let temp = arr[lowest];
+//       // arr[lowest] = arr[i];
+//       // arr[i] = temp;
+//     }
 //   }
+//   console.log(arr);
+//   return arr;
 // }
 
-const arr = [8, 3, 6, 1, 3, 9, 11];
+// selectionSort(arr);
 
-function selectionSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let lowest = i;
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[lowest]) {
-        lowest = j;
-      }
+// ==============================================================================
+// ============================== INSERTION SORT ================================
+// ==============================================================================
+// - Start by picking the second element in the array
+// - Compare the second element and compare it to the one before it and swap if necessary
+// - Continue to the next element, and if it's in the incorrect order, itterate through the sorted portion
+// to place the element in the correct place.
+
+const arr = [3, 6, 1, 3, 9, 11];
+
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let currentVal = arr[i];
+    let j;
+    // loop works only when j >= 0 && arr[j] > currentVal
+    for (j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
     }
+    arr[j + 1] = currentVal;
   }
+  console.log(arr);
   return arr;
 }
 
-selectionSort(arr);
+insertionSort(arr);
