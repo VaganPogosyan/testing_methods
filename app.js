@@ -394,20 +394,27 @@ import { collectOdds, factorial, Recursion } from "./Recursion.js";
 // - Continue to the next element, and if it's in the incorrect order, itterate through the sorted portion
 // to place the element in the correct place.
 
+// const arr = [3, 6, 1, 3, 9, 11];
+
+// function insertionSort(arr) {
+//   for (let i = 1; i < arr.length; i++) {
+//     let currentVal = arr[i];
+//     let j;
+//     // loop works only when j >= 0 && arr[j] > currentVal
+//     for (j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+//       arr[j + 1] = arr[j];
+//     }
+//     arr[j + 1] = currentVal;
+//   }
+//   return arr;
+// }
+
+// console.log(insertionSort(arr));
+
+// ==============================================================================
+// ============================== MERGE SORT ====================================
+// ==============================================================================
+
 const arr = [3, 6, 1, 3, 9, 11];
 
-function insertionSort(arr) {
-  for (let i = 1; i < arr.length; i++) {
-    let currentVal = arr[i];
-    let j;
-    // loop works only when j >= 0 && arr[j] > currentVal
-    for (j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
-      arr[j + 1] = arr[j];
-    }
-    arr[j + 1] = currentVal;
-  }
-  console.log(arr);
-  return arr;
-}
-
-insertionSort(arr);
+function merge(arr1, arr2) {}
