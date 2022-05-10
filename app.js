@@ -460,3 +460,98 @@ import { collectOdds, factorial, Recursion } from "./Recursion.js";
 
 // console.log(merge([1, 2, 293, 506], [5, 9, 12]));
 // console.log(mergeSort([6, 8, 2, 4, 3, 9, 12, 5, 23, 7, 1]));
+
+// ==============================================================================
+// ============================== QUICK SORT ====================================
+// ==============================================================================
+// - Call the pivot helper function
+// - When the helper returns to you the updated pivot's index, recursively call the pivot helper
+// on the subarray to the left of that index, and the subarray to the right of it.
+// - Your base case occurs when subarray has less than two elements
+
+// Pivot helper
+// - Pick a pivot in an input array (in our case we'll pick the first element of the array)
+// - Create a variable "swapIdx" or "storeIndex" that will store the count of elements that are smaller than pivot
+// and it will be the final index/position of the sorted pivot relative to the input array
+// - Itterate through the array starting from the next element after pivot
+// - If the next element is smaller than pivot: add 1 to the "swapIdx" count variable and then swap the element with the "swapIdx" element
+// - If next element is greater than pivot: don't do anything and keep iterating
+// - When reached the end of the array swap pivot element with the "swapIdx" element
+
+// const arr = [6, 8, 2, 4, 3, 9, 12, 5, 23, 7, 1];
+
+// function pivot(arr, start = 0, end = arr.length - 1) {
+//   function swap(arr, i, j) {
+//     [arr[i], arr[j]] = [arr[j], arr[i]];
+//   }
+
+//   let pivot = arr[start];
+//   let swapIdx = 0;
+//   for (let i = start + 1; i < arr.length; i++) {
+//     if (arr[i] <= pivot) {
+//       swapIdx++;
+//       swap(arr, swapIdx, i);
+//     }
+//   }
+//   swap(arr, start, swapIdx);
+//   return swapIdx;
+// }
+
+// console.log(pivot(arr));
+
+// function quickSort(arr, left = 0, right = arr.length - 1) {
+//   if (left < right) {
+//     let pivotIndex = pivot(arr, left, right);
+//     // left
+//     quickSort(arr, left, pivotIndex - 1);
+//     // right
+//     quickSort(arr, pivotIndex + 1, right);
+//   }
+//   return arr;
+// }
+
+// ==============================================================================
+// ============================== RADIX SORT ====================================
+// ==============================================================================
+// - Define a fucntion that accepts a list of numbers
+// - Figure out how many digits the largest number has
+// - Loop from k = 0 to this largest number of digits
+// - For each iteration of the loop:
+// - - Create buckets for each digit (0 to 9)
+// - - Place each number in the corresponding bucket based on its kth digit
+// - Replace our existing array with values on our buckets, starting with 0 and going up to 9
+// - rturn list at the end
+
+function getDigit(num, i) {
+  return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+}
+
+function digitCount(num) {
+  if (num === 0) return 1; // because log10(0) === -Infinity
+  return Math.floor(Math.log10(Math.abs(num))) + 1;
+}
+
+function mostDigits(nums) {
+  let maxDigits = 0;
+  for (let i = 0; i < nums.length; i++) {
+    maxDigits = Math.max(maxDigits, digitCount(nums[i]));
+  }
+  return maxDigits;
+}
+
+function radixSort(nums) {
+  let maxDigitCount = mostDigits(nums);
+  for (let k = 0; k < maxDigitCount; k++) {
+    let digitBuckets = Array.from({ length: 10 }, () => []);
+    for (let i = 0; i < nums.length; i++) {
+      let digit = getDigit(nums[i], k);
+      digitBuckets[digit].push(nums[i]);
+    }
+    nums = [].concat(...digitBuckets);
+  }
+  return nums;
+}
+
+console.log(
+  radixSort([234, 764, 34456532456433, 76, 98087, 34532, 2, 3243, 76867, 89])
+);
